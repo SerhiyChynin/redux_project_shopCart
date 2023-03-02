@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="container">
       {/* вывод данных из хранилища */}
-      <div className="goods-field">
+      <div>
         <GoodsList/>
 
       </div>
