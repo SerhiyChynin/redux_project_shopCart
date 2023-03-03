@@ -1,5 +1,6 @@
 import GoodsList from "./container/GoodsList";
 import CartList from "./container/CartList";
+import Cart from "./components/Cart";
 import './App.css';
 
 
@@ -10,6 +11,7 @@ function App() {
       <div>
         <GoodsList/>
         <CartList/>
+        <Cart/>
       </div>
     </div>
   );

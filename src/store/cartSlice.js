@@ -12,9 +12,19 @@ export const cartSlice = createSlice({
             if (state.value[articul] === undefined) state.value[articul] = 0;
             state.value[articul] ++;
         },
+
+        add: (state, data) => {
+            state.value += +data.payload;
+        },
+        minus: (state, data) => {
+            state.value -= +data.payload;
+        },
+        delet: (state, data) => {
+            state.value = '';
+        },
     }
 }) 
 
-export const {increment } = cartSlice.actions;
+export const {increment , add, minus, delet} = cartSlice.actions;
 export const selectCart = state => state.cart.value;
 export default cartSlice.reducer;  
