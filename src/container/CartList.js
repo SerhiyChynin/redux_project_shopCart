@@ -15,18 +15,31 @@ function CartList() {
         return accum;
     }, {});
 
-    function clickHandler() {
-        const addGoods = () => {
-            dispatch(add())
+    function clickHandler(event) {
+      if (event.target.classList.contains('plus')) {
+        console.log('+');
+        const articul = event.target.getAttribute('data-articul');
+        dispatch(add(articul));
         }
-        console.log(Cart)
-      console.log('Hello!')
+        if (event.target.classList.contains('minus')) {
+            console.log('-');
+            const articulMin = event.target.getAttribute('data-articul');
+            articulMin = event.target.getAttribute('data-articul');
+            dispatch(minus(articulMin))
+        }
+        if (event.target.classList.contains('delet')) {
+            console.log('delete');
+            const articulDel = event.target.getAttribute('data-articul');
+            articulDel = event.target.getAttribute('data-articul');
+            dispatch(delet(articulDel))
+        }
     }
     
     return (
         <div onClick={clickHandler}>
             <ul>
-                {Object.keys(cart).map(item => <li key={item}>{goodsObj[item]['title']} - {cart[item]}</li>)}
+                {<Cart cart={cart}  goods={goods} />}
+                {/* {Object.keys(cart).map(item => <li key={item}>{goodsObj[item]['title'] }  - {cart[item]}  <button className="plus" data-articul={item}>+</button> <button className="minus" data-articul={item}>-</button> <button className="delet" data-articul={item}>Delete</button></li>)} */}
             </ul>
         </div>
     )

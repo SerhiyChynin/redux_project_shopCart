@@ -14,13 +14,20 @@ export const cartSlice = createSlice({
         },
 
         add: (state, data) => {
-            state.value += +data.payload;
+            let articul = data.payload;
+            state.value[articul]++;
+            return state;
         },
         minus: (state, data) => {
-            state.value -= +data.payload;
+            let articulMin = data.payload;
+            state.value[articulMin]--;
+            console.log(state.value)
+            return state;
         },
         delet: (state, data) => {
-            state.value = '';
+            let articulDel = data.payload;
+            state.value[articulDel] = '';
+            return state;
         },
     }
 }) 

@@ -10,8 +10,7 @@ function App() {
       {/* вывод данных из хранилища */}
       <div>
         <GoodsList/>
-        <CartList/>
-        <Cart/>
+        <CartList />
       </div>
     </div>
   );
