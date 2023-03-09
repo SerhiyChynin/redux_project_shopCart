@@ -25,7 +25,6 @@ export const cartSlice = createSlice({
             return state;
         },
         delet: (state, data) => {
-            let articul = data.payload;
             state.value = {};
             return state;
         },

@@ -38,7 +38,7 @@ function CartList() {
         <div onClick={clickHandler}>
             <ul>
                 {/* {<Cart cart={cart}  goods={goods} />} */}
-                {Object.keys(cart).map(item => <li key={item}>{goodsObj[item]['title'] }  - {cart[item]}  <button className="plus" data-articul={item}>+</button> <button className="minus" data-articul={item}>-</button> <button className="delet" data-articul={item}>Delete</button></li>)}
+                {Object.keys(cart).map(item => <li key={item}> <img src={goodsObj[item]['image']} width="32px" height="32px" /> - {goodsObj[item]['title'] }  - {cart[item]} -  <button className="plus" data-articul={item}>+</button> <button className="minus" data-articul={item}>-</button> <button className="delet" data-articul={item}>Delete</button> </li>)}
             </ul>
         </div>
     )
