@@ -14,6 +14,6 @@ export const goodsSlice = createSlice({
     
 }); 
 
-export const { increment, add, minus, delet} = goodsSlice.actions;
+export const { increment} = goodsSlice.actions;
 export const selectGoods = state => state.goods.goods;
 export default goodsSlice.reducer;  

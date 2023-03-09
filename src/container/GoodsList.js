@@ -19,9 +19,6 @@ function GoodsList() {
         if (!t.classList.contains('add-to-cart')) return true;
         dispatch(increment(t.getAttribute('data-key')));
         
-    
-    
-
         
     }
     return (

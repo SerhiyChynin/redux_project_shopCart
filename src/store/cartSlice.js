@@ -21,12 +21,12 @@ export const cartSlice = createSlice({
         minus: (state, data) => {
             let articul = data.payload;
             state.value[articul]--;
-            if (state.value[articul] === 0) state.value[articul] = '';
+            if (state.value[articul] === 0) state.value[articul] = state.value = {};
             return state;
         },
         delet: (state, data) => {
             let articul = data.payload;
-            state.value[articul] = '';
+            state.value = {};
             return state;
         },
     }
