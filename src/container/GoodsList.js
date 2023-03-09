@@ -18,6 +18,11 @@ function GoodsList() {
         let t = event.target;
         if (!t.classList.contains('add-to-cart')) return true;
         dispatch(increment(t.getAttribute('data-key')));
+        
+    
+    
+
+        
     }
     return (
         <div>

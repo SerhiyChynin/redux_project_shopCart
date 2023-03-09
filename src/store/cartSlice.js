@@ -19,14 +19,14 @@ export const cartSlice = createSlice({
             return state;
         },
         minus: (state, data) => {
-            let articulMin = data.payload;
-            state.value[articulMin]--;
-            console.log(state.value)
+            let articul = data.payload;
+            state.value[articul]--;
+            if (state.value[articul] === 0) state.value[articul] = '';
             return state;
         },
         delet: (state, data) => {
-            let articulDel = data.payload;
-            state.value[articulDel] = '';
+            let articul = data.payload;
+            state.value[articul] = '';
             return state;
         },
     }
