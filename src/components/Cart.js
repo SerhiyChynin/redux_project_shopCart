@@ -7,12 +7,19 @@ class Cart extends React.Component {
         let out = [];
         for (let key in this.props.cart) {
             let goods = this.getGoodsFromArr(key);
-            console.log(goods);
+            // console.log(goods['cost']);
+            // console.log(this.props.cart[key]);
             out.push(
             <tr key={key}>
-                <td>{goods['title']}</td>
-                <td>{this.props.cart[key]}</td>
-                <td>{this.props.cart[key] * goods['cost']}</td>  
+                <td>{goods['title']} - </td>
+                <td> {this.props.cart[key]}</td>
+                <td> {this.props.cart[key] * goods['cost']}</td> 
+                <td> 
+                    <button>+</button>    
+                    <button>-</button>    
+                    <button>Delete</button>
+                    </td> 
+            
             </tr>);
             }
             return out;

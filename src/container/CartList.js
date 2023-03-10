@@ -2,7 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectGoods } from "../store/goodsSlice";
 import { selectCart } from "../store/cartSlice";
-import {add, minus, delet} from '../store/cartSlice'
+import { add, minus, delet } from '../store/cartSlice'
+import Cart from "../components/Cart";
 
 function CartList() {
     const goods = useSelector(selectGoods);
@@ -13,7 +14,7 @@ function CartList() {
         accum[item['articul']] = item;
         return accum;
     }, {});
-    console.log(goodsObj)
+    console.log(goodsObj);
 
     function clickHandler(event) {
       if (event.target.classList.contains('plus')) {
@@ -25,7 +26,7 @@ function CartList() {
             console.log('-');
             const articul = event.target.getAttribute('data-articul');
             dispatch(minus(articul));
-            console.log(cart)
+            console.log(cart);
         }
         if (event.target.classList.contains('delet')) {
             console.log('delete');
@@ -36,9 +37,13 @@ function CartList() {
     
     return (
         <div onClick={clickHandler}>
+                {<Cart  cart={cart}  goods={goods} />}
             <ul>
-                {/* {<Cart cart={cart}  goods={goods} />} */}
-                {Object.keys(cart).map(item => <li key={item}> <img src={goodsObj[item]['image']} width="32px" height="32px" /> - {goodsObj[item]['title'] }  - {cart[item]} -  <button className="plus" data-articul={item}>+</button> <button className="minus" data-articul={item}>-</button> <button className="delet" data-articul={item}>Delete</button> </li>)}
+                {Object.keys(cart).map(item => <li key={item}> <img src={goodsObj[item]['image']}
+                    width="32px" height="32px" /> - {goodsObj[item]['title']} - {cart[item]} - 
+                    <button className="plus" data-articul={item}>+</button> 
+                    <button className="minus" data-articul={item}>-</button>
+                    <button className="delet" data-articul={item}>Delete</button> </li>)}
             </ul>
         </div>
     )
