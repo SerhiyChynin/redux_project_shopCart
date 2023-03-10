@@ -20,7 +20,7 @@ class Cart extends React.Component {
                     <button className="minus" data-articul={key}>-</button>
                     <button className="delet" data-articul={key}>Delete</button>
                     </td> 
-                    <td>{this.props.total[key]}</td>
+                    <td>{this.props.total}</td>
                 </tr>);
             <tr key={key}>
             </tr>

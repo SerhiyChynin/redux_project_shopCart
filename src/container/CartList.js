@@ -9,20 +9,16 @@ function CartList() {
     const goods = useSelector(selectGoods);
     const cart = useSelector(selectCart);
     const dispatch = useDispatch();
-    // console.log(Object.keys(cart))
-    // console.log(typeof(goods))
-    // console.log(Object.values(goods)['cost'])
-    let total = Object.keys(cart).reduce((acc, item) => {
-        acc += Object.values(goods)[item]
-        console.log(Object.values(goods)[item]);
-        return acc;
-    }, 0)
-     // переиндексация массива товаров
+    // переиндексация массива товаров
     const goodsObj = goods.reduce((accum, item) => {
         accum[item['articul']] = item;
         return accum;
     }, {});
-    // console.log(goodsObj);
+    
+    let total = Object.keys(cart).reduce((acc, item) => {
+        acc += cart[item] * goodsObj[item]['cost'];
+        return acc;
+    }, 0);
 
     function clickHandler(event) {
       if (event.target.classList.contains('plus')) {
