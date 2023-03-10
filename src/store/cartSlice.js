@@ -16,6 +16,7 @@ export const cartSlice = createSlice({
         add: (state, data) => {
             let articul = data.payload;
             state.value[articul]++;
+            
             return state;
         },
         minus: (state, data) => {
@@ -29,9 +30,14 @@ export const cartSlice = createSlice({
             delete (state.value[articul]);
             return state;
         },
+        total: (state, data) => {
+            let articul = data.payload;
+            
+        },
+     
     }
 }) 
 
-export const {increment , add, minus, delet} = cartSlice.actions;
+export const {increment , add, minus, delet, total} = cartSlice.actions;
 export const selectCart = state => state.cart.value;
 export default cartSlice.reducer;  

@@ -9,12 +9,20 @@ function CartList() {
     const goods = useSelector(selectGoods);
     const cart = useSelector(selectCart);
     const dispatch = useDispatch();
+    // console.log(Object.keys(cart))
+    // console.log(typeof(goods))
+    // console.log(Object.values(goods)['cost'])
+    let total = Object.keys(cart).reduce((acc, item) => {
+        acc += Object.values(goods)[item]
+        console.log(Object.values(goods)[item]);
+        return acc;
+    }, 0)
      // переиндексация массива товаров
     const goodsObj = goods.reduce((accum, item) => {
         accum[item['articul']] = item;
         return accum;
     }, {});
-    console.log(goodsObj);
+    // console.log(goodsObj);
 
     function clickHandler(event) {
       if (event.target.classList.contains('plus')) {
@@ -34,16 +42,17 @@ function CartList() {
             dispatch(delet(articul))
         }
     }
+    // console.log(Object.keys(cart))
     
     return (
         <div onClick={clickHandler}>
-                {<Cart  cart={cart}  goods={goods} />}
+                {<Cart  cart={cart}  goods={goods} total={total} />}
             <ul>
-                {Object.keys(cart).map(item => <li key={item}> <img src={goodsObj[item]['image']}
+                {/* {Object.keys(cart).map(item => <li key={item}> <img src={goodsObj[item]['image']}
                     width="32px" height="32px" /> - {goodsObj[item]['title']} - {cart[item]} - 
                     <button className="plus" data-articul={item}>+</button> 
                     <button className="minus" data-articul={item}>-</button>
-                    <button className="delet" data-articul={item}>Delete</button> </li>)}
+                    <button className="delet" data-articul={item}>Delete</button> </li>)} */}
             </ul>
         </div>
     )

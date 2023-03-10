@@ -5,22 +5,25 @@ class Cart extends React.Component {
 
     renderObj = () => {
         let out = [];
+        // console.log(this.props.goods)
         for (let key in this.props.cart) {
             let goods = this.getGoodsFromArr(key);
-            // console.log(goods['cost']);
-            // console.log(this.props.cart[key]);
             out.push(
             <tr key={key}>
                 <td>{goods['title']} - </td>
                 <td> {this.props.cart[key]}</td>
                 <td> {this.props.cart[key] * goods['cost']}</td> 
-                <td> 
-                    <button>+</button>    
-                    <button>-</button>    
-                    <button>Delete</button>
+                    <td> <img src={goods['image']}
+                        width="32px" height="32px" /></td> 
+                    <td> 
+                    <button className="plus" data-articul={key}>+</button> 
+                    <button className="minus" data-articul={key}>-</button>
+                    <button className="delet" data-articul={key}>Delete</button>
                     </td> 
-            
-            </tr>);
+                    <td>{this.props.total[key]}</td>
+                </tr>);
+            <tr key={key}>
+            </tr>
             }
             return out;
     }
@@ -41,8 +44,9 @@ class Cart extends React.Component {
                 <h1>Корзина</h1>
                 <table>
                     <tbody>
-                        <tr><th>Art</th><th>Count</th><th>Cost</th></tr>
+                        <tr><th>Art</th><th>Count</th><th>Cost</th><th></th><th></th><th>Total</th></tr>
                         {this.renderObj()} 
+
                     </tbody>
                 </table>
             </div>

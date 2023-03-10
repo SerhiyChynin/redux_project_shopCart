@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectGoods } from "../store/goodsSlice";
 import Goods from "../components/Goods";
-import { increment } from "../store/cartSlice";
+import { increment, total } from "../store/cartSlice";
 
 /**
  * get data from store
@@ -18,6 +18,7 @@ function GoodsList() {
         let t = event.target;
         if (!t.classList.contains('add-to-cart')) return true;
         dispatch(increment(t.getAttribute('data-key')));
+        dispatch(total(t.getAttribute('goods')));
         
         
     }
