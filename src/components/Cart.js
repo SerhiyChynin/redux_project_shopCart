@@ -5,7 +5,6 @@ class Cart extends React.Component {
 
     renderObj = () => {
         let out = [];
-        // console.log(this.props.goods)
         for (let key in this.props.cart) {
             let goods = this.getGoodsFromArr(key);
             out.push(
@@ -20,13 +19,24 @@ class Cart extends React.Component {
                     <button className="minus" data-articul={key}>-</button>
                     <button className="delet" data-articul={key}>Delete</button>
                     </td> 
-                    <td>{this.props.total}</td>
                 </tr>);
-            <tr key={key}>
-            </tr>
+            
             }
             return out;
     }
+    renderTotal() {
+        let total = [];
+        for (let key in this.props.cart) {
+            total.push(
+                <tr key={key}>
+                    <th>{this.props.total}</th>
+                </tr>);
+            // if (this.props.total === this.props.total)
+            // return this.props.total;
+  
+        };
+    return total;
+    };
     
     
     getGoodsFromArr = (art) => {
@@ -44,8 +54,11 @@ class Cart extends React.Component {
                 <h1>Корзина</h1>
                 <table>
                     <tbody>
-                        <tr><th>Art</th><th>Count</th><th>Cost</th><th></th><th></th><th>Total</th></tr>
+                        <tr><th>Art</th><th>Count</th><th>Cost</th><th></th><th></th></tr>
                         {this.renderObj()} 
+                        <tr><th>Total</th></tr>
+                        {this.renderTotal()}
+                   
 
                     </tbody>
                 </table>
