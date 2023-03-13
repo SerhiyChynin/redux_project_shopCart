@@ -25,19 +25,22 @@ class Cart extends React.Component {
             return out;
     }
     renderTotal() {
-
+        let thanks = 'Tank You!'
         let total = [];
         for (let key in this.props.cart) {
+
+          
             total.push(
                 <tr key={key}>
                     <th>{this.props.total}</th>
                 </tr>);
             if (this.props.total === this.props.total)
-                return <tr><th>{this.props.total}</th></tr>;
-  
+                return <tr><th>{this.props.total} - </th>
+                    <th><button onClick={() => { alert('Thank You!')}}>Pay</button></th></tr>;
         };
         return total
     };
+            
     
     
     getGoodsFromArr = (art) => {
@@ -57,7 +60,7 @@ class Cart extends React.Component {
                     <tbody>
                         <tr><th>Art</th><th>Count</th><th>Cost</th><th></th><th></th></tr>
                         {this.renderObj()} 
-                        <tr><th>Total</th></tr>
+                        <tr><th>Total</th><th></th><th></th><th></th></tr>
                         {this.renderTotal()}
                    
 
